@@ -1,0 +1,9 @@
+# Only the website itself gets published. Everything else in this folder
+# (raw photos/videos, zips, other projects) stays local.
+/*
+!/.gitignore
+!/index.html
+!/css/
+!/js/
+!/assets/
+.DS_Store

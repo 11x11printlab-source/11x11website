@@ -1,0 +1,592 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>11:11 Printlab — Custom 3D Printing Studio</title>
+<meta name="description" content="11:11 Printlab designs and prints custom 3D figures, signage, cosplay props, lithophanes, and one-of-one keepsakes. Based in your imagination, made real layer by layer.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230a0a0a'/%3E%3Crect x='10' y='10' width='44' height='44' rx='6' fill='none' stroke='%23ff5a1f' stroke-width='3'/%3E%3Cpath d='M20 44V20l12 12 12-12v24' fill='none' stroke='%23ff5a1f' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- ================= HEADER ================= -->
+<header class="site-header" id="siteHeader">
+  <div class="container nav-row">
+    <a href="#top" class="logo" aria-label="11:11 Printlab home">
+      11:11 <em>Printlab</em>
+    </a>
+
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#work">Work</a>
+      <a href="#shop">Shop</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="nav-actions">
+      <a href="#contact" class="btn btn-primary nav-cta">Get a Quote</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobileMenu">
+        <svg class="icon-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><line x1="5" y1="5" x2="19" y2="19"/><line x1="19" y1="5" x2="5" y2="19"/></svg>
+      </button>
+    </div>
+  </div>
+
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#work">Work</a>
+  <a href="#shop">Shop</a>
+  <a href="#about">About</a>
+  <a href="#contact">Contact</a>
+  <a href="#contact" class="btn btn-primary">Get a Quote</a>
+</div>
+
+<main id="main">
+
+  <!-- ================= HERO ================= -->
+  <section class="hero grain" id="top">
+    <div class="hero-grid" aria-hidden="true"></div>
+    <div class="container hero-inner">
+      <div class="hero-copy">
+        <p class="eyebrow">Custom 3D Printing Studio</p>
+        <h1>Make it <span class="accent">real.</span><br>Not just an idea.</h1>
+        <p class="hero-sub">11:11 Printlab designs and prints custom figures, signage, props, and one-of-one keepsakes — from a photo, a sketch, or a "what if." Modeled, sliced, and printed in-house.</p>
+        <div class="hero-actions">
+          <a href="#work" class="btn btn-primary">
+            View Our Work
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+          <a href="#contact" class="btn btn-outline">Start a Custom Order</a>
+        </div>
+        <div class="hero-meta">
+          <div class="stat"><b>1-Off</b><span>Custom Builds</span></div>
+          <div class="stat"><b>&#8734;</b><span>Materials On Hand</span></div>
+          <div class="stat"><b>On Every Line</b><span>Layer Precision</span></div>
+        </div>
+      </div>
+      <div class="hero-visual-wrap" style="position:relative;">
+        <div class="hero-visual">
+          <span class="frame-tag">FEATURED BUILD</span>
+          <img src="assets/work/charizard-figure.jpg" alt="Hand-painted custom Charizard figure printed and finished by 11:11 Printlab" width="1800" height="1350" fetchpriority="high">
+        </div>
+        <div class="hero-visual-2">
+          <img src="assets/work/wedding-keepsake.jpg" alt="Custom wedding couple keepsake figure presented in a gift box" width="1800" height="1350" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= MARQUEE ================= -->
+  <div class="marquee-strip" role="presentation" aria-hidden="true">
+    <div class="marquee-track">
+      <span>Custom Figures</span><span>Signage &amp; Logos</span><span>Cosplay Props</span><span>Lithophanes</span><span>Sneaker Culture</span><span>Prototypes</span>
+      <span>Custom Figures</span><span>Signage &amp; Logos</span><span>Cosplay Props</span><span>Lithophanes</span><span>Sneaker Culture</span><span>Prototypes</span>
+    </div>
+  </div>
+
+  <!-- ================= WORK ================= -->
+  <section class="section-pad" id="work">
+    <div class="container">
+      <div class="section-head reveal">
+        <div>
+          <p class="eyebrow">Selected Work</p>
+          <h2 class="h-display">Things we've printed for real people.</h2>
+        </div>
+        <p>Every piece below shipped to an actual customer — figures, signs, props, and keepsakes, one print run at a time.</p>
+      </div>
+
+      <div class="filter-row reveal" id="filterRow" role="tablist" aria-label="Filter work by category">
+        <button class="filter-btn is-active" data-filter="all" role="tab" aria-selected="true">All Work</button>
+        <button class="filter-btn" data-filter="figures" role="tab" aria-selected="false">Figures &amp; Collectibles</button>
+        <button class="filter-btn" data-filter="signage" role="tab" aria-selected="false">Signage &amp; Logos</button>
+        <button class="filter-btn" data-filter="streetwear" role="tab" aria-selected="false">Hypebeast</button>
+        <button class="filter-btn" data-filter="keepsakes" role="tab" aria-selected="false">Keepsakes &amp; Art</button>
+        <button class="filter-btn" data-filter="functional" role="tab" aria-selected="false">Functional &amp; Props</button>
+      </div>
+
+      <div class="work-grid reveal" id="workGrid">
+
+        <a class="work-item big" href="assets/work/charizard-figure.jpg" data-cat="figures" data-title="Charizard Build" data-cat-label="Figures &amp; Collectibles">
+          <img src="assets/work/thumbs/charizard-figure.jpg" alt="Hand-painted custom Charizard figure" width="900" height="675" loading="lazy">
+          <span class="expand-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg></span>
+          <span class="work-overlay"><span class="cat">Figures &amp; Collectibles</span><h3>Charizard Build</h3></span>
+        </a>
+
+        <a class="work-item big" href="assets/work/wedding-keepsake.jpg" data-cat="keepsakes" data-title="Wedding Day Keepsake" data-cat-label="Keepsakes &amp; Art">
+          <img src="assets/work/thumbs/wedding-keepsake.jpg" alt="Custom wedding couple keepsake figure in a gift box" width="900" height="675" loading="lazy">
+          <span class="expand-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg></span>
+          <span class="work-overlay"><span class="cat">Keepsakes &amp; Art</span><h3>Wedding Day Keepsake</h3></span>
+        </a>
+
+        <a class="work-item" href="assets/work/dojo-sign.jpg" data-cat="signage" data-title="DOJO Studio Sign" data-cat-label="Signage &amp; Logos">
+          <img src="assets/work/thumbs/dojo-sign.jpg" alt="Custom DOJO studio logo sign" width="900" height="675" loading="lazy">
+          <span class="expand-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg></span>
+          <span class="work-overlay"><span class="cat">Signage &amp; Logos</span><h3>DOJO Studio Sign</h3></span>
+        </a>
+
+        <a class="work-item" href="assets/work/dodger-stadium-sign.jpg" data-cat="signage" data-title="Stadium Replica Sign" data-cat-label="Signage &amp; Logos">
+          <img src="assets/work/thumbs/dodger-stadium-sign.jpg" alt="Custom Dodger Stadium replica street sign" width="900" height="675" loading="lazy">
+          <span class="expand-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg></span>
+          <span class="work-overlay"><span class="cat">Signage &amp; Logos</span><h3>Stadium Replica Sign</h3></span>
+        </a>
+
+        <a class="work-item" href="assets/work/elsalvador-sign.jpg" data-cat="signage" data-title="Federación Crest Display" data-cat-label="Signage &amp; Logos">
+          <img src="assets/work/thumbs/elsalvador-sign.jpg" alt="Custom El Salvador federation crest display" width="900" height="675" loading="lazy">
+          <span class="expand-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg></span>
+          <span class="work-overlay"><span class="cat">Signage &amp; Logos</span><h3>Federación Crest Display</h3></span>
+        </a>
+
+        <a class="work-item" href="assets/work/yssasets-logo.jpg" data-cat="signage" data-title="Yssasets Brand Logo" data-cat-label="Signage &amp; Logos">
+          <img src="assets/work/thumbs/yssasets-logo.jpg" alt="Custom small-business brand logo sign" width="900" height="675" loading="lazy">
+          <span class="expand-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg></span>
+          <span class="work-overlay"><span class="cat">Signage &amp; Logos</span><h3>Yssasets Brand Logo</h3></span>
+        </a>
+
+        <a class="work-item" href="assets/work/biggie-portrait.jpg" data-cat="keepsakes" data-title="Pop Art Panel" data-cat-label="Keepsakes &amp; Art">
+          <img src="assets/work/thumbs/biggie-portrait.jpg" alt="Custom printed pop art portrait panel" width="900" height="675" loading="lazy">
+          <span class="expand-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg></span>
+          <span class="work-overlay"><span class="cat">Keepsakes &amp; Art</span><h3>Pop Art Panel</h3></span>
+        </a>
+
+        <a class="work-item" href="assets/work/lion-wall-art.jpg" data-cat="keepsakes" data-title="Lion Wall Art" data-cat-label="Keepsakes &amp; Art">
+          <img src="assets/work/thumbs/lion-wall-art.jpg" alt="Custom lion portrait wall art on display stand" width="900" height="675" loading="lazy">
+          <span class="expand-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg></span>
+          <span class="work-overlay"><span class="cat">Keepsakes &amp; Art</span><h3>Lion Wall Art</h3></span>
+        </a>
+
+        <a class="work-item" href="assets/work/lithophane-couple.jpg" data-cat="keepsakes" data-title="Lithophane Portrait" data-cat-label="Keepsakes &amp; Art">
+          <img src="assets/work/thumbs/lithophane-couple.jpg" alt="Backlit lithophane portrait of a couple" width="900" height="675" loading="lazy">
+          <span class="expand-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg></span>
+          <span class="work-overlay"><span class="cat">Keepsakes &amp; Art</span><h3>Lithophane Portrait</h3></span>
+        </a>
+
+        <a class="work-item" href="assets/work/lithophane-footprints.jpg" data-cat="keepsakes" data-title="Baby Footprint Plaque" data-cat-label="Keepsakes &amp; Art">
+          <img src="assets/work/thumbs/lithophane-footprints.jpg" alt="Baby footprint keepsake plaque" width="900" height="675" loading="lazy">
+          <span class="expand-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg></span>
+          <span class="work-overlay"><span class="cat">Keepsakes &amp; Art</span><h3>Baby Footprint Plaque</h3></span>
+        </a>
+
+        <a class="work-item" href="assets/work/lithophane-band.jpg" data-cat="keepsakes" data-title="Framed Lithophane Print" data-cat-label="Keepsakes &amp; Art">
+          <img src="assets/work/thumbs/lithophane-band.jpg" alt="Framed lithophane print on a display stand" width="900" height="675" loading="lazy">
+          <span class="expand-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg></span>
+          <span class="work-overlay"><span class="cat">Keepsakes &amp; Art</span><h3>Framed Lithophane Print</h3></span>
+        </a>
+
+        <a class="work-item" href="assets/work/custom-bobblehead.jpg" data-cat="figures" data-title="Custom Bobblehead — Cruz" data-cat-label="Figures &amp; Collectibles">
+          <img src="assets/work/thumbs/custom-bobblehead.jpg" alt="Custom bobblehead figure with name plate" width="900" height="675" loading="lazy">
+          <span class="expand-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg></span>
+          <span class="work-overlay"><span class="cat">Figures &amp; Collectibles</span><h3>Custom Bobblehead — Cruz</h3></span>
+        </a>
+
+        <a class="work-item" href="assets/work/custom-avatar-figure.jpg" data-cat="figures" data-title="Custom Avatar Figure" data-cat-label="Figures &amp; Collectibles">
+          <img src="assets/work/thumbs/custom-avatar-figure.jpg" alt="Custom 3D printed game avatar figure" width="900" height="675" loading="lazy">
+          <span class="expand-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg></span>
+          <span class="work-overlay"><span class="cat">Figures &amp; Collectibles</span><h3>Custom Avatar Figure</h3></span>
+        </a>
+
+        <a class="work-item" href="assets/work/hello-kitty-duo.jpg" data-cat="figures" data-title="Hello Kitty Duo" data-cat-label="Figures &amp; Collectibles">
+          <img src="assets/work/thumbs/hello-kitty-duo.jpg" alt="Pair of custom printed Hello Kitty figures" width="900" height="675" loading="lazy">
+          <span class="expand-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg></span>
+          <span class="work-overlay"><span class="cat">Figures &amp; Collectibles</span><h3>Hello Kitty Duo</h3></span>
+        </a>
+
+        <a class="work-item" href="assets/work/kirby-figure.jpg" data-cat="figures" data-title="Kirby Figure" data-cat-label="Figures &amp; Collectibles">
+          <img src="assets/work/thumbs/kirby-figure.jpg" alt="Custom printed and painted Kirby figure" width="900" height="675" loading="lazy">
+          <span class="expand-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg></span>
+          <span class="work-overlay"><span class="cat">Figures &amp; Collectibles</span><h3>Kirby Figure</h3></span>
+        </a>
+
+        <a class="work-item" href="assets/work/dragon-egg.jpg" data-cat="figures" data-title="Dragon Egg" data-cat-label="Figures &amp; Collectibles">
+          <img src="assets/work/thumbs/dragon-egg.jpg" alt="Custom painted fantasy dragon egg print" width="900" height="675" loading="lazy">
+          <span class="expand-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg></span>
+          <span class="work-overlay"><span class="cat">Figures &amp; Collectibles</span><h3>Dragon Egg</h3></span>
+        </a>
+
+        <a class="work-item" href="assets/work/sneaker-sole-tray.jpg" data-cat="streetwear" data-title="Sneaker Sole Display Tray" data-cat-label="Hypebeast">
+          <img src="assets/work/thumbs/sneaker-sole-tray.jpg" alt="Custom sneaker sole display tray" width="900" height="675" loading="lazy">
+          <span class="expand-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg></span>
+          <span class="work-overlay"><span class="cat">Hypebeast</span><h3>Sneaker Sole Display Tray</h3></span>
+        </a>
+
+        <a class="work-item" href="assets/work/sneaker-magnets.jpg" data-cat="streetwear" data-title="Mini Sneaker Magnets" data-cat-label="Hypebeast">
+          <img src="assets/work/thumbs/sneaker-magnets.jpg" alt="Set of mini custom sneaker magnets" width="900" height="675" loading="lazy">
+          <span class="expand-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg></span>
+          <span class="work-overlay"><span class="cat">Hypebeast</span><h3>Mini Sneaker Magnets</h3></span>
+        </a>
+
+        <a class="work-item" href="assets/work/helmet-prop.jpg" data-cat="functional" data-title="Cosplay Helmet &amp; Vest Build" data-cat-label="Functional &amp; Props">
+          <img src="assets/work/thumbs/helmet-prop.jpg" alt="Large format cosplay helmet and tactical vest build" width="900" height="675" loading="lazy">
+          <span class="expand-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg></span>
+          <span class="work-overlay"><span class="cat">Functional &amp; Props</span><h3>Cosplay Helmet &amp; Vest Build</h3></span>
+        </a>
+
+        <a class="work-item" href="assets/work/storage-crate.jpg" data-cat="functional" data-title="Modular Storage Crate" data-cat-label="Functional &amp; Props">
+          <img src="assets/work/thumbs/storage-crate.jpg" alt="Functional modular storage crate print" width="900" height="675" loading="lazy">
+          <span class="expand-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg></span>
+          <span class="work-overlay"><span class="cat">Functional &amp; Props</span><h3>Modular Storage Crate</h3></span>
+        </a>
+
+        <a class="work-item" href="assets/work/spiral-vase.jpg" data-cat="functional" data-title="Spiral Vase" data-cat-label="Functional &amp; Props">
+          <img src="assets/work/thumbs/spiral-vase.jpg" alt="Decorative spiral vase print" width="900" height="675" loading="lazy">
+          <span class="expand-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg></span>
+          <span class="work-overlay"><span class="cat">Functional &amp; Props</span><h3>Spiral Vase</h3></span>
+        </a>
+
+      </div>
+
+      <div class="work-more reveal">
+        <a href="#contact" class="btn btn-outline">Have something similar in mind? Let's talk</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SHOP ================= -->
+  <section class="section-pad grain" id="shop" style="background:var(--bg-soft); border-top:1px solid var(--border); border-bottom:1px solid var(--border);">
+    <div class="container">
+      <div class="section-head reveal">
+        <div>
+          <p class="eyebrow">Custom Shop</p>
+          <h2 class="h-display">Pick a lane. We'll build it around your idea.</h2>
+        </div>
+        <p>Every order is made to spec — these are our most-requested categories and typical starting prices.</p>
+      </div>
+
+      <div class="shop-grid reveal">
+
+        <article class="shop-card">
+          <div class="shop-card-media">
+            <img src="assets/work/thumbs/custom-bobblehead.jpg" alt="Custom bobblehead figure made from a customer photo" width="900" height="675" loading="lazy">
+            <span class="shop-card-price">From $65</span>
+          </div>
+          <div class="shop-card-body">
+            <h3>Custom Figures &amp; Bobbleheads</h3>
+            <p>Send a photo or character reference — we sculpt, print, and hand-paint a figure that actually looks like your person (or pet).</p>
+            <button class="shop-card-link" data-project="figures">Request this <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
+          </div>
+        </article>
+
+        <article class="shop-card">
+          <div class="shop-card-media">
+            <img src="assets/work/thumbs/dojo-sign.jpg" alt="Custom multi-layer logo sign for a business" width="900" height="675" loading="lazy">
+            <span class="shop-card-price">From $40</span>
+          </div>
+          <div class="shop-card-body">
+            <h3>Signs &amp; Logo Displays</h3>
+            <p>Multi-layer business signs, team crests, and desk logos — stacked color, no paint required, ready to mount or stand.</p>
+            <button class="shop-card-link" data-project="signage">Request this <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
+          </div>
+        </article>
+
+        <article class="shop-card">
+          <div class="shop-card-media">
+            <img src="assets/work/thumbs/sneaker-sole-tray.jpg" alt="Sneaker sole display tray, streetwear custom print" width="900" height="675" loading="lazy">
+            <span class="shop-card-price">From $25</span>
+          </div>
+          <div class="shop-card-body">
+            <h3>Hypebeast &amp; Sneaker Art</h3>
+            <p>Sole trays, line-art wall pieces, and magnet sets for the sneakerheads — display-ready in your colorway.</p>
+            <button class="shop-card-link" data-project="streetwear">Request this <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
+          </div>
+        </article>
+
+        <article class="shop-card">
+          <div class="shop-card-media">
+            <img src="assets/work/thumbs/lithophane-couple.jpg" alt="Lithophane photo panel that reveals an image when backlit" width="900" height="675" loading="lazy">
+            <span class="shop-card-price">From $35</span>
+          </div>
+          <div class="shop-card-body">
+            <h3>Lithophanes &amp; Photo Art</h3>
+            <p>Your photo, printed into a panel that glows to life when it's backlit. A favorite for weddings, babies, and memorials.</p>
+            <button class="shop-card-link" data-project="keepsakes">Request this <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
+          </div>
+        </article>
+
+        <article class="shop-card">
+          <div class="shop-card-media">
+            <img src="assets/work/thumbs/helmet-prop.jpg" alt="Large format cosplay helmet and vest print" width="900" height="675" loading="lazy">
+            <span class="shop-card-price">From $90</span>
+          </div>
+          <div class="shop-card-body">
+            <h3>Props &amp; Large-Format Builds</h3>
+            <p>Cosplay armor, helmets, and oversized display pieces — segmented, printed, and assembled to size.</p>
+            <button class="shop-card-link" data-project="functional">Request this <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
+          </div>
+        </article>
+
+        <article class="shop-card">
+          <div class="shop-card-media">
+            <img src="assets/work/thumbs/storage-crate.jpg" alt="Functional modular storage crate print" width="900" height="675" loading="lazy">
+            <span class="shop-card-price">From $15</span>
+          </div>
+          <div class="shop-card-body">
+            <h3>Functional Prints &amp; Prototypes</h3>
+            <p>Replacement parts, organizers, mounts, and early-stage prototypes — fast turnaround in the material you need.</p>
+            <button class="shop-card-link" data-project="other">Request this <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
+          </div>
+        </article>
+
+      </div>
+
+      <div class="shop-note reveal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="9"/><line x1="12" y1="11" x2="12" y2="16.5"/><circle cx="12" cy="7.8" r="0.9" fill="currentColor" stroke="none"/></svg>
+        <span>Prices shown are typical starting points — every custom job gets its own quote based on size, material, and finish. Nothing is charged until you approve a price.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= ABOUT ================= -->
+  <section class="section-pad" id="about">
+    <div class="container about-layout">
+      <div class="about-copy reveal">
+        <p class="eyebrow">About The Studio</p>
+        <h2 class="h-display">Why "11:11"?</h2>
+        <p>You know the moment — you glance at the clock, it reads <b>11:11</b>, and for half a second you make a wish. That's the studio's whole premise: someone has an idea worth wishing for, and we happen to own the printers to make it real.</p>
+        <p>What started as printing parts and favors for friends turned into custom figures, business signage, cosplay armor, and keepsakes people actually cry over. <b>Every job is modeled, sliced, and finished in-house</b> — no outsourcing, no templates pretending to be "custom."</p>
+
+        <div class="process-list">
+          <div class="process-item">
+            <span class="process-num">01</span>
+            <div>
+              <h4>Send the idea</h4>
+              <p>A photo, a sketch, a screenshot, a link — whatever gets the concept across.</p>
+            </div>
+          </div>
+          <div class="process-item">
+            <span class="process-num">02</span>
+            <div>
+              <h4>We model &amp; quote</h4>
+              <p>We design or source the model, pick the right material, and send a firm price.</p>
+            </div>
+          </div>
+          <div class="process-item">
+            <span class="process-num">03</span>
+            <div>
+              <h4>Print &amp; finish</h4>
+              <p>Printed layer by layer, then sanded, glued, or painted depending on the piece.</p>
+            </div>
+          </div>
+          <div class="process-item">
+            <span class="process-num">04</span>
+            <div>
+              <h4>Ship or pickup</h4>
+              <p>Packed to survive the trip, with local pickup available on request.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-visual reveal">
+        <img class="tall" src="assets/work/thumbs/print-in-progress-1.jpg" alt="A custom figure mid-print on the 3D printer bed" width="900" height="1200" loading="lazy">
+        <img src="assets/work/thumbs/print-in-progress-2.jpg" alt="A rabbit figure being 3D printed" width="900" height="1200" loading="lazy">
+        <img src="assets/work/thumbs/material-test-cubes.jpg" alt="PLA, PETG, and ABS material test prints side by side" width="900" height="1200" loading="lazy">
+      </div>
+    </div>
+
+    <div class="container materials-strip reveal">
+      <div class="material-card">
+        <span class="mat-name">PLA</span>
+        <h4>Detail &amp; Display</h4>
+        <p>Our go-to for figures, signage, and anything that needs crisp detail and clean color. Best fit for indoor décor and gifts.</p>
+      </div>
+      <div class="material-card">
+        <span class="mat-name">PETG</span>
+        <h4>Strength &amp; Durability</h4>
+        <p>Tougher and more flexible — used for functional parts, outdoor pieces, and anything that'll take a knock.</p>
+      </div>
+      <div class="material-card">
+        <span class="mat-name">ABS</span>
+        <h4>Heat &amp; Impact Resistance</h4>
+        <p>Our pick for props, automotive-adjacent parts, and builds that need to survive heat or hard use.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CTA BAND ================= -->
+  <section class="section-pad cta-band">
+    <div class="container reveal">
+      <p class="eyebrow" style="justify-content:center;">Got An Idea?</p>
+      <h2 class="h-display">Let's print your next "what if."</h2>
+      <p>Tell us what you're picturing — we'll tell you what it takes to make it real.</p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn btn-primary">Start a Custom Order</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CONTACT ================= -->
+  <section class="section-pad" id="contact">
+    <div class="container">
+      <div class="section-head reveal">
+        <div>
+          <p class="eyebrow">Get In Touch</p>
+          <h2 class="h-display">Tell us what you want to make.</h2>
+        </div>
+        <p>Fill out the form or email us directly — we usually reply within 24–48 hours.</p>
+      </div>
+
+      <div class="contact-layout">
+        <div class="contact-info-card reveal">
+          <h3>Contact Details</h3>
+
+          <div class="contact-line">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+            <div>
+              <span class="label">Email</span>
+              <a href="mailto:11x11printlab@gmail.com">11x11printlab@gmail.com</a>
+            </div>
+          </div>
+
+          <div class="contact-line">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.2 3.2"/></svg>
+            <div>
+              <span class="label">Response Time</span>
+              <span>Within 24–48 hours, every day</span>
+            </div>
+          </div>
+
+          <div class="contact-line">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l2.5 5.5L20 9l-4 4 1 6-5-3-5 3 1-6-4-4 5.5-.5z"/></svg>
+            <div>
+              <span class="label">Custom Orders</span>
+              <span>Every piece is quoted individually — no minimums</span>
+            </div>
+          </div>
+
+          <div class="social-row" aria-label="Social links">
+            <a href="https://instagram.com/11x11printlab" target="_blank" rel="noopener" aria-label="11:11 Printlab on Instagram" title="Instagram">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none"/></svg>
+            </a>
+            <a href="https://www.tiktok.com/@11x11.print.lab" target="_blank" rel="noopener" aria-label="11:11 Printlab on TikTok" title="TikTok">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4v9.5a3.5 3.5 0 1 1-3-3.46"/><path d="M14 4c.4 2.2 2 3.6 4 4"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <form class="form-card reveal" id="contactForm" novalidate>
+          <div class="form-grid">
+            <div class="field">
+              <label for="name">Name <span class="req">*</span></label>
+              <input type="text" id="name" name="name" autocomplete="name" required>
+              <span class="field-error">Please enter your name.</span>
+            </div>
+            <div class="field">
+              <label for="email">Email <span class="req">*</span></label>
+              <input type="email" id="email" name="email" autocomplete="email" required>
+              <span class="field-error">Enter a valid email address.</span>
+            </div>
+            <div class="field">
+              <label for="project">Project Type</label>
+              <select id="project" name="project">
+                <option value="figures">Custom Figure / Bobblehead</option>
+                <option value="signage">Sign / Logo Display</option>
+                <option value="streetwear">Hypebeast / Sneaker Art</option>
+                <option value="keepsakes">Lithophane / Photo Art</option>
+                <option value="functional">Prop / Large-Format Build</option>
+                <option value="other">Something Else</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="budget">Budget Range</label>
+              <select id="budget" name="budget">
+                <option value="">Not sure yet</option>
+                <option value="under-50">Under $50</option>
+                <option value="50-150">$50 – $150</option>
+                <option value="150-400">$150 – $400</option>
+                <option value="400-plus">$400+</option>
+              </select>
+            </div>
+            <div class="field full">
+              <label for="details">Project Details <span class="req">*</span></label>
+              <textarea id="details" name="details" required placeholder="What are you picturing? Reference photos, size, deadline — the more detail, the faster we can quote it."></textarea>
+              <span class="field-error">Tell us a bit about the project.</span>
+            </div>
+          </div>
+
+          <div class="form-foot">
+            <span class="form-status" id="formStatus">Opening your email app…</span>
+            <button type="submit" class="btn btn-primary">
+              Send Inquiry
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ================= LIGHTBOX ================= -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Work image preview">
+  <button class="lightbox-close" id="lightboxClose" aria-label="Close preview">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><line x1="5" y1="5" x2="19" y2="19"/><line x1="19" y1="5" x2="5" y2="19"/></svg>
+  </button>
+  <button class="lightbox-prev" id="lightboxPrev" aria-label="Previous image">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 5 8 12 15 19"/></svg>
+  </button>
+  <button class="lightbox-next" id="lightboxNext" aria-label="Next image">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 5 16 12 9 19"/></svg>
+  </button>
+  <figure class="lightbox-figure">
+    <img id="lightboxImg" src="" alt="">
+    <figcaption class="lightbox-caption">
+      <span><b id="lightboxTitle"></b></span>
+      <span id="lightboxCat"></span>
+    </figcaption>
+  </figure>
+</div>
+
+<!-- ================= FOOTER ================= -->
+<footer class="site-footer">
+  <div class="container footer-top">
+    <div class="footer-brand">
+      <a href="#top" class="logo">11:11 <em>Printlab</em></a>
+      <p>Custom 3D printing for figures, signage, props, and keepsakes — modeled, printed, and finished in-house, one order at a time.</p>
+    </div>
+    <div class="footer-col">
+      <h5>Studio</h5>
+      <ul>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#shop">Shop</a></li>
+        <li><a href="#about">About</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Get In Touch</h5>
+      <ul>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="mailto:11x11printlab@gmail.com">Email Us</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Newsletter</h5>
+      <ul>
+        <li style="color:var(--text-dim); font-size: var(--fs-sm);">Follow along for new builds and behind-the-scenes prints.</li>
+      </ul>
+      <div class="social-row" style="margin-top:1rem;">
+        <a href="https://instagram.com/11x11printlab" target="_blank" rel="noopener" aria-label="11:11 Printlab on Instagram" title="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none"/></svg>
+        </a>
+        <a href="https://www.tiktok.com/@11x11.print.lab" target="_blank" rel="noopener" aria-label="11:11 Printlab on TikTok" title="TikTok">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4v9.5a3.5 3.5 0 1 1-3-3.46"/><path d="M14 4c.4 2.2 2 3.6 4 4"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <span>© <span id="year"></span> 11:11 Printlab. All rights reserved.</span>
+    <button class="back-to-top" id="backToTop">
+      Back to top
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+    </button>
+  </div>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script src="js/main.js"></script>
+</body>
+</html>
