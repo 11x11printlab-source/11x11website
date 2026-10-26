@@ -341,6 +341,7 @@
     var skip = document.getElementById("introSkip");
     var timers = [];
     var done = false;
+    var calm = root.classList.contains("intro-calm");
 
     function later(fn, ms) { timers.push(window.setTimeout(fn, ms)); }
 
@@ -371,6 +372,10 @@
     }
 
     function slam(el, delay) {
+      if (calm) {
+        el.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 260, delay: delay, easing: "ease-out", fill: "both" });
+        return;
+      }
       el.animate([
         { opacity: 0, transform: "scale(2.7) translateY(-8%)", filter: "blur(14px)" },
         { opacity: 1, transform: "scale(0.9) translateY(2%)", filter: "blur(0px)", offset: 0.55 },
@@ -383,26 +388,28 @@
     var second = build(line2);
 
     // "11:11" lands first, one character at a time, then "PRINTLAB"
-    var start1 = 250, step1 = 130;
-    var start2 = 1150, step2 = 85;
+    var start1 = calm ? 200 : 250, step1 = calm ? 120 : 130;
+    var start2 = calm ? 950 : 1150, step2 = calm ? 70 : 85;
     first.forEach(function (el, i) { slam(el, start1 + i * step1); });
     second.forEach(function (el, i) { slam(el, start2 + i * step2); });
-    later(pulse, start1 + (first.length - 1) * step1 + 170);
-    later(pulse, start2 + (second.length - 1) * step2 + 170);
+    if (!calm) {
+      later(pulse, start1 + (first.length - 1) * step1 + 170);
+      later(pulse, start2 + (second.length - 1) * step2 + 170);
+    }
 
     tag.animate([{ opacity: 0, transform: "translateY(10px)" }, { opacity: 1, transform: "translateY(0)" }],
-      { duration: 500, delay: 2200, easing: "ease-out", fill: "both" });
+      { duration: 500, delay: calm ? 1700 : 2200, easing: "ease-out", fill: "both" });
 
     function finish(fast) {
       if (done) return;
       done = true;
       timers.forEach(window.clearTimeout);
       document.removeEventListener("keydown", onKey);
-      var wipe = fast
-        ? intro.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 260, easing: "ease-out", fill: "forwards" })
+      var wipe = (fast || calm)
+        ? intro.animate([{ opacity: 1 }, { opacity: 0 }], { duration: fast ? 260 : 500, easing: "ease-out", fill: "forwards" })
         : intro.animate([{ transform: "translateY(0)" }, { transform: "translateY(-100%)" }],
             { duration: 850, easing: "cubic-bezier(.76,0,.24,1)", fill: "forwards" });
-      window.setTimeout(heroPlay, fast ? 80 : 300);
+      window.setTimeout(heroPlay, (fast || calm) ? 80 : 300);
       var ended = false;
       function cleanup() {
         if (ended) return;
@@ -412,7 +419,7 @@
         window.scrollTo(0, 0);
       }
       wipe.onfinish = cleanup;
-      window.setTimeout(cleanup, fast ? 400 : 1100);
+      window.setTimeout(cleanup, (fast || calm) ? 700 : 1100);
     }
 
     function onKey(e) {
@@ -426,7 +433,7 @@
     skip.addEventListener("click", function (e) { e.stopPropagation(); finish(true); });
     skip.focus({ preventScroll: true });
 
-    later(function () { finish(false); }, 3200);
+    later(function () { finish(false); }, calm ? 2700 : 3200);
   }
 
   if (intro && canAnimate && root.classList.contains("intro-pending")) {

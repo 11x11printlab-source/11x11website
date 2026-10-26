@@ -1110,8 +1110,9 @@ html.intro-pending body{ overflow: hidden; }
   margin-top: clamp(0.8rem, 2.2vw, 1.8rem);
   font-family: var(--font-mono); font-size: clamp(0.7rem, 1.5vw, 1.05rem);
   letter-spacing: 0.34em; text-transform: uppercase; color: var(--text-dim);
-  opacity: 0;
+  opacity: 0; white-space: nowrap; text-align: center;
 }
+@media (max-width: 520px){ .intro-tag{ letter-spacing: 0.2em; } }
 .intro-flash{ position: absolute; inset: 0; background: var(--orange); opacity: 0; pointer-events: none; }
 .intro-skip{
   position: absolute; right: 1.5rem; bottom: 1.5rem;
