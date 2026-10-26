@@ -1191,3 +1191,17 @@ html.hero-play .hero-visual-wrap{
 }
 .video-play-label i{ font-style: normal; color: var(--orange); margin-left: 0.6rem; }
 @media (prefers-reduced-motion: reduce){ .video-play-btn::after{ animation: none; opacity: 0; } }
+
+/* Your Team Koozies: option dropdowns, button states, fine print */
+.combo-btn[aria-disabled="true"]{
+  background: var(--surface-2); color: var(--text-faint);
+  border-color: var(--border-strong); cursor: not-allowed;
+}
+.combo-btn[aria-disabled="true"]:hover{ background: var(--surface-2); }
+.product-hint{
+  margin-top: var(--space-2); padding: var(--space-2) var(--space-3);
+  font-size: var(--fs-xs); line-height: 1.55; color: var(--text-dim);
+  border: 1px dashed var(--border-strong); border-radius: var(--radius-sm);
+}
+.product-fine{ margin-top: var(--space-2); font-size: var(--fs-xs); line-height: 1.5; color: var(--text-faint); }
+.product-select-combo{ width: 100%; cursor: pointer; }

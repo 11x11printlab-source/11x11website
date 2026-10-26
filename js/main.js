@@ -507,3 +507,67 @@
     vid.addEventListener("ended", function () { card.classList.remove("is-playing"); });
   }
 })();
+
+/* ---------------------------------------------------------------------
+   Your Team Koozies: Team + Size dropdowns -> Square link (or email fallback)
+   --------------------------------------------------------------------- */
+(function () {
+  "use strict";
+  var card = document.getElementById("koozieCard");
+  if (!card) return;
+  var team = document.getElementById("koozieTeam");
+  var size = document.getElementById("koozieSize");
+  var btn = document.getElementById("koozieBuy");
+  var hint = document.getElementById("koozieHint");
+  var EMAIL = "11x11printlab@gmail.com";
+  var links = {};
+  try { links = (JSON.parse(document.getElementById("koozieLinks").textContent) || {}).links || {}; } catch (e) {}
+
+  function pick(t, s) {
+    return links[t + "|" + s] || links["*|" + s] || links[t + "|*"] || links["*|*"] || "";
+  }
+
+  function reset() {
+    btn.href = "#";
+    btn.removeAttribute("target");
+    btn.removeAttribute("rel");
+    btn.removeAttribute("aria-label");
+  }
+
+  function sync() {
+    var t = team.value, s = size.value;
+    hint.hidden = true;
+    reset();
+    if (!t || !s) {
+      btn.textContent = !t ? "Choose Your Team" : "Choose a Size";
+      btn.setAttribute("aria-disabled", "true");
+      return;
+    }
+    btn.removeAttribute("aria-disabled");
+    var url = pick(t, s);
+    if (/^https:\/\//i.test(url)) {
+      btn.href = url;
+      btn.target = "_blank";
+      btn.rel = "noopener";
+      btn.textContent = "Buy Now";
+      btn.setAttribute("aria-label", "Buy Your Team Koozie, " + t + ", " + s + " (opens secure Square checkout)");
+    } else {
+      var subject = "Your Team Koozie: " + t + " / " + s;
+      var body = "Hi! I'd like to order a Your Team Koozie.\n\nTeam: " + t + "\nSize: " + s +
+        "\nPrice: $15 + $10 flat shipping (US)\n\nShip-to name and address:\n";
+      btn.href = "mailto:" + EMAIL + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+      btn.textContent = "Order Now";
+      hint.hidden = false;
+    }
+  }
+
+  btn.addEventListener("click", function (e) {
+    if (btn.getAttribute("aria-disabled") === "true") {
+      e.preventDefault();
+      (team.value ? size : team).focus();
+    }
+  });
+  team.addEventListener("change", sync);
+  size.addEventListener("change", sync);
+  sync();
+})();

@@ -6,7 +6,7 @@
 <title>Store — 11:11 Printlab</title>
 <meta name="description" content="Shop ready-to-ship 3D printed pieces from 11:11 Printlab. Secure checkout and shipping handled by Square.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230a0a0a'/%3E%3Crect x='10' y='10' width='44' height='44' rx='6' fill='none' stroke='%23ff5a1f' stroke-width='3'/%3E%3Cpath d='M20 44V20l12 12 12-12v24' fill='none' stroke='%23ff5a1f' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
-<link rel="stylesheet" href="css/style.css?v=20261027a">
+<link rel="stylesheet" href="css/style.css?v=20261027b">
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -81,6 +81,86 @@
       -->
 
       <div class="shop-grid" id="productGrid">
+
+        <!--
+          Your Team Koozies: Team + Size dropdowns, $15 + $10 flat US shipping.
+          HOW TO MAKE "BUY NOW" GO STRAIGHT TO SQUARE: paste Square payment links into the #koozieLinks block below.
+          Until a link exists for the chosen options, the button opens a pre-filled email order instead, so no sale is lost.
+        -->
+        <article class="shop-card product-card" id="koozieCard">
+          <div class="shop-card-media">
+            <a href="assets/work/your-team-koozies.jpg" target="_blank" rel="noopener" aria-label="View the full Your Team Koozies product image">
+              <img src="assets/work/thumbs/your-team-koozies.jpg" alt="Two mini water-cooler can koozies in team colors, each holding a can, at a football stadium" width="900" height="599" loading="lazy">
+            </a>
+            <span class="shop-card-price">New</span>
+          </div>
+          <div class="shop-card-body">
+            <h3>Your Team Koozies</h3>
+            <p>Mini water-cooler can holders, 3D printed in your team's colors. Pick your team and your can size and we'll print yours to order.</p>
+            <div class="field product-option">
+              <label for="koozieTeam">Team</label>
+              <select id="koozieTeam" class="product-select-combo">
+                <option value="">Choose your team</option>
+                <option value="Arizona Cardinals">Arizona Cardinals</option>
+                <option value="Atlanta Falcons">Atlanta Falcons</option>
+                <option value="Baltimore Ravens">Baltimore Ravens</option>
+                <option value="Buffalo Bills">Buffalo Bills</option>
+                <option value="Carolina Panthers">Carolina Panthers</option>
+                <option value="Chicago Bears">Chicago Bears</option>
+                <option value="Cincinnati Bengals">Cincinnati Bengals</option>
+                <option value="Cleveland Browns">Cleveland Browns</option>
+                <option value="Dallas Cowboys">Dallas Cowboys</option>
+                <option value="Denver Broncos">Denver Broncos</option>
+                <option value="Detroit Lions">Detroit Lions</option>
+                <option value="Green Bay Packers">Green Bay Packers</option>
+                <option value="Houston Texans">Houston Texans</option>
+                <option value="Indianapolis Colts">Indianapolis Colts</option>
+                <option value="Jacksonville Jaguars">Jacksonville Jaguars</option>
+                <option value="Kansas City Chiefs">Kansas City Chiefs</option>
+                <option value="Las Vegas Raiders">Las Vegas Raiders</option>
+                <option value="Los Angeles Chargers">Los Angeles Chargers</option>
+                <option value="Los Angeles Rams">Los Angeles Rams</option>
+                <option value="Miami Dolphins">Miami Dolphins</option>
+                <option value="Minnesota Vikings">Minnesota Vikings</option>
+                <option value="New England Patriots">New England Patriots</option>
+                <option value="New Orleans Saints">New Orleans Saints</option>
+                <option value="New York Giants">New York Giants</option>
+                <option value="New York Jets">New York Jets</option>
+                <option value="Philadelphia Eagles">Philadelphia Eagles</option>
+                <option value="Pittsburgh Steelers">Pittsburgh Steelers</option>
+                <option value="San Francisco 49ers">San Francisco 49ers</option>
+                <option value="Seattle Seahawks">Seattle Seahawks</option>
+                <option value="Tampa Bay Buccaneers">Tampa Bay Buccaneers</option>
+                <option value="Tennessee Titans">Tennessee Titans</option>
+                <option value="Washington Commanders">Washington Commanders</option>
+              </select>
+            </div>
+            <div class="field product-option">
+              <label for="koozieSize">Size</label>
+              <select id="koozieSize" class="product-select-combo">
+                <option value="">Choose a size</option>
+                <option value="16 oz">16 oz</option>
+                <option value="16 oz Slim Can">16 oz Slim Can</option>
+                <option value="Standard Can">Standard Can</option>
+              </select>
+            </div>
+            <div class="product-foot">
+              <span class="product-price">$15 <small class="product-ship">+ $10 shipping anywhere in the US</small></span>
+              <a class="btn btn-primary combo-btn" id="koozieBuy" href="#" aria-disabled="true">Choose Your Team</a>
+            </div>
+            <p class="product-hint" id="koozieHint" hidden>Online checkout for this option is coming soon. This button opens an email with your choices filled in, and we'll reply with a secure payment link.</p>
+            <p class="product-fine">Independent 3D printing studio. Not affiliated with or endorsed by the NFL or any NFL team.</p>
+          </div>
+        </article>
+
+        <script type="application/json" id="koozieLinks">{ "links": {} }</script>
+        <!--
+          koozieLinks keys, most specific first:
+            "Dallas Cowboys|16 oz Slim Can": "https://square.link/u/..."   one link for that exact team + size
+            "*|16 oz Slim Can": "https://square.link/u/..."                one link for a size (any team)
+            "Dallas Cowboys|*": "https://square.link/u/..."                one link for a team (any size)
+            "*|*": "https://square.link/u/..."                             one link for everything
+        -->
 
         <!-- Dino Duo: each color option carries its own Square payment link in data-square-url -->
         <article class="shop-card product-card">
@@ -175,6 +255,6 @@
 
 <div class="toast" id="toast"></div>
 
-<script src="js/main.js?v=20261027a"></script>
+<script src="js/main.js?v=20261027b"></script>
 </body>
 </html>
