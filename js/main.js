@@ -337,6 +337,7 @@
     var line1 = document.getElementById("introL1");
     var line2 = document.getElementById("introL2");
     var tag = document.getElementById("introTag");
+    var zoom = document.getElementById("introZoom");
     var flash = document.getElementById("introFlash");
     var skip = document.getElementById("introSkip");
     var timers = [];
@@ -358,47 +359,57 @@
       return spans;
     }
 
+    var SLAM = calm ? 420 : 560;
+
     function shake() {
       stage.animate([
         { transform: "translate(0,0)" },
-        { transform: "translate(-6px,5px)" },
-        { transform: "translate(5px,-4px)" },
+        { transform: "translate(-9px,7px)" },
+        { transform: "translate(7px,-6px)" },
+        { transform: "translate(-3px,2px)" },
         { transform: "translate(0,0)" }
-      ], { duration: 140, easing: "ease-out" });
+      ], { duration: 240, easing: "ease-out" });
     }
 
     function pulse() {
-      flash.animate([{ opacity: 0 }, { opacity: 0.16 }, { opacity: 0 }], { duration: 180 });
+      flash.animate([{ opacity: 0 }, { opacity: 0.16 }, { opacity: 0 }], { duration: 320 });
     }
 
     function slam(el, delay) {
       if (calm) {
-        el.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 260, delay: delay, easing: "ease-out", fill: "both" });
+        el.animate([{ opacity: 0 }, { opacity: 1 }], { duration: SLAM, delay: delay, easing: "ease-out", fill: "both" });
         return;
       }
       el.animate([
-        { opacity: 0, transform: "scale(2.7) translateY(-8%)", filter: "blur(14px)" },
-        { opacity: 1, transform: "scale(0.9) translateY(2%)", filter: "blur(0px)", offset: 0.55 },
+        { opacity: 0, transform: "scale(3.2) translateY(-10%)", filter: "blur(20px)" },
+        { opacity: 1, transform: "scale(0.88) translateY(3%)", filter: "blur(0px)", offset: 0.58 },
         { opacity: 1, transform: "scale(1) translateY(0)", filter: "blur(0px)" }
-      ], { duration: 300, delay: delay, easing: "cubic-bezier(.2,.9,.25,1)", fill: "both" });
-      later(shake, delay + 170);
+      ], { duration: SLAM, delay: delay, easing: "cubic-bezier(.16,.84,.3,1)", fill: "both" });
+      later(shake, delay + SLAM * 0.58);
     }
 
     var first = build(line1);
     var second = build(line2);
 
     // "11:11" lands first, one character at a time, then "PRINTLAB"
-    var start1 = calm ? 200 : 250, step1 = calm ? 120 : 130;
-    var start2 = calm ? 950 : 1150, step2 = calm ? 70 : 85;
+    // a beat of pure black first, a slow hammer for 11:11, a long pause, then PRINTLAB
+    var start1 = calm ? 500 : 800, step1 = calm ? 220 : 340;
+    var start2 = calm ? 1900 : 3200, step2 = calm ? 110 : 170;
     first.forEach(function (el, i) { slam(el, start1 + i * step1); });
     second.forEach(function (el, i) { slam(el, start2 + i * step2); });
     if (!calm) {
-      later(pulse, start1 + (first.length - 1) * step1 + 170);
-      later(pulse, start2 + (second.length - 1) * step2 + 170);
+      later(pulse, start1 + (first.length - 1) * step1 + SLAM * 0.58);
+      later(pulse, start2 + (second.length - 1) * step2 + SLAM * 0.58);
     }
 
     tag.animate([{ opacity: 0, transform: "translateY(10px)" }, { opacity: 1, transform: "translateY(0)" }],
-      { duration: 500, delay: calm ? 1700 : 2200, easing: "ease-out", fill: "both" });
+      { duration: 700, delay: calm ? 3300 : 5100, easing: "ease-out", fill: "both" });
+
+    // a slow, steady push toward the screen while the letters land
+    if (!calm) {
+      zoom.animate([{ transform: "scale(1)" }, { transform: "scale(1.07)" }],
+        { duration: 7600, easing: "linear", fill: "both" });
+    }
 
     function finish(fast) {
       if (done) return;
@@ -406,10 +417,10 @@
       timers.forEach(window.clearTimeout);
       document.removeEventListener("keydown", onKey);
       var wipe = (fast || calm)
-        ? intro.animate([{ opacity: 1 }, { opacity: 0 }], { duration: fast ? 260 : 500, easing: "ease-out", fill: "forwards" })
+        ? intro.animate([{ opacity: 1 }, { opacity: 0 }], { duration: fast ? 260 : 700, easing: "ease-out", fill: "forwards" })
         : intro.animate([{ transform: "translateY(0)" }, { transform: "translateY(-100%)" }],
-            { duration: 850, easing: "cubic-bezier(.76,0,.24,1)", fill: "forwards" });
-      window.setTimeout(heroPlay, (fast || calm) ? 80 : 300);
+            { duration: 1000, easing: "cubic-bezier(.76,0,.24,1)", fill: "forwards" });
+      window.setTimeout(heroPlay, (fast || calm) ? 80 : 420);
       var ended = false;
       function cleanup() {
         if (ended) return;
@@ -419,7 +430,7 @@
         window.scrollTo(0, 0);
       }
       wipe.onfinish = cleanup;
-      window.setTimeout(cleanup, (fast || calm) ? 700 : 1100);
+      window.setTimeout(cleanup, (fast || calm) ? 1000 : 1500);
     }
 
     function onKey(e) {
@@ -433,7 +444,7 @@
     skip.addEventListener("click", function (e) { e.stopPropagation(); finish(true); });
     skip.focus({ preventScroll: true });
 
-    later(function () { finish(false); }, calm ? 2700 : 3200);
+    later(function () { finish(false); }, calm ? 4600 : 6700);
   }
 
   if (intro && canAnimate && root.classList.contains("intro-pending")) {

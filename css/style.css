@@ -1098,6 +1098,10 @@ html.intro-pending body{ overflow: hidden; }
   gap: clamp(0.3rem, 1.2vw, 1rem);
   will-change: transform;
 }
+.intro-zoom{
+  display: flex; flex-direction: column; align-items: center;
+  gap: clamp(0.3rem, 1.2vw, 1rem); will-change: transform;
+}
 .intro-line{
   display: flex; justify-content: center;
   font-family: var(--font-display); font-weight: 900; text-transform: uppercase;

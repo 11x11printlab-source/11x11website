@@ -6,7 +6,7 @@
 <title>11:11 Printlab — Custom 3D Printing Studio</title>
 <meta name="description" content="11:11 Printlab designs and prints custom 3D figures, signage, cosplay props, lithophanes, and one-of-one keepsakes. Based in your imagination, made real layer by layer.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230a0a0a'/%3E%3Crect x='10' y='10' width='44' height='44' rx='6' fill='none' stroke='%23ff5a1f' stroke-width='3'/%3E%3Cpath d='M20 44V20l12 12 12-12v24' fill='none' stroke='%23ff5a1f' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
-<link rel="stylesheet" href="css/style.css?v=20261026c">
+<link rel="stylesheet" href="css/style.css?v=20261026d">
 <script>
   /* Opening sequence gate: runs before first paint. The page stays fully usable without JS. */
   (function () {
@@ -20,7 +20,7 @@
     if (!seen) {
       d.classList.add("intro-pending");
       if (calm) d.classList.add("intro-calm"); /* Reduce motion: gentle fade-in instead of slam, shake and flash */
-      setTimeout(function () { d.classList.remove("intro-pending"); }, 9000);
+      setTimeout(function () { d.classList.remove("intro-pending"); }, 13000);
     }
   })();
 </script>
@@ -29,9 +29,11 @@
 <!-- ================= OPENING SEQUENCE ================= -->
 <div class="intro" id="intro">
   <div class="intro-stage" id="introStage" aria-hidden="true">
-    <div class="intro-line intro-1" id="introL1" data-text="11:11"></div>
-    <div class="intro-line intro-2" id="introL2" data-text="PRINTLAB"></div>
-    <p class="intro-tag" id="introTag">Custom 3D printing studio</p>
+    <div class="intro-zoom" id="introZoom">
+      <div class="intro-line intro-1" id="introL1" data-text="11:11"></div>
+      <div class="intro-line intro-2" id="introL2" data-text="PRINTLAB"></div>
+      <p class="intro-tag" id="introTag">Custom 3D printing studio</p>
+    </div>
   </div>
   <div class="intro-flash" id="introFlash" aria-hidden="true"></div>
   <button type="button" class="intro-skip" id="introSkip">Skip intro</button>
@@ -646,6 +648,6 @@
 
 <div class="toast" id="toast"></div>
 
-<script src="js/main.js?v=20261026c"></script>
+<script src="js/main.js?v=20261026d"></script>
 </body>
 </html>
