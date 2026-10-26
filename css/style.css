@@ -1191,3 +1191,79 @@ html.hero-play .hero-visual-wrap{
 }
 .video-play-label i{ font-style: normal; color: var(--orange); margin-left: 0.6rem; }
 @media (prefers-reduced-motion: reduce){ .video-play-btn::after{ animation: none; opacity: 0; } }
+
+/* ==========================================================================
+   Product page
+   ========================================================================== */
+.product-page{ padding-top: calc(var(--space-9) - var(--space-3)); }
+.breadcrumb{
+  display: flex; flex-wrap: wrap; gap: 0.5rem;
+  font-family: var(--font-mono); font-size: var(--fs-xs);
+  text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-faint);
+  margin-bottom: var(--space-5);
+}
+.breadcrumb a{ color: var(--text-dim); }
+.breadcrumb a:hover{ color: var(--orange); }
+.product-layout{
+  display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--space-6);
+  align-items: start;
+}
+@media (min-width: 960px){
+  .product-layout{ grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr); gap: var(--space-7); }
+  .product-gallery{ position: sticky; top: calc(var(--space-8) + var(--space-2)); }
+}
+.gallery-main{
+  aspect-ratio: 4 / 3; border-radius: var(--radius-lg); overflow: hidden;
+  background: #ece8e1; border: 1px solid var(--border);
+}
+.gallery-main img{ width: 100%; height: 100%; object-fit: contain; }
+.gallery-thumbs{
+  display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: var(--space-2);
+  margin-top: var(--space-2);
+}
+.gallery-thumb{
+  aspect-ratio: 4 / 3; border-radius: var(--radius-md); overflow: hidden;
+  background: #ece8e1; border: 2px solid transparent; padding: 0; cursor: pointer;
+  transition: border-color var(--dur-fast);
+}
+.gallery-thumb img{ width: 100%; height: 100%; object-fit: cover; }
+.gallery-thumb:hover{ border-color: var(--border-strong); }
+.gallery-thumb[aria-pressed="true"]{ border-color: var(--orange); }
+
+.product-info .eyebrow{ margin-bottom: var(--space-2); }
+.product-title{
+  font-family: var(--font-display); font-weight: 800; font-size: var(--fs-3xl);
+  text-transform: uppercase; letter-spacing: -0.02em; line-height: 0.95;
+}
+.product-info .product-price{ display: block; margin-top: var(--space-3); font-size: var(--fs-2xl); }
+.product-ship{ color: var(--text-dim); font-size: var(--fs-sm); margin-top: 0.25rem; }
+.product-desc{ color: var(--text-dim); margin-top: var(--space-4); max-width: 34rem; }
+.product-form{ margin-top: var(--space-5); display: grid; gap: var(--space-4); }
+.product-form .field select{
+  appearance: none; -webkit-appearance: none; cursor: pointer;
+  padding-right: 2.75rem;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ff5a1f' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: right 1rem center; background-size: 18px;
+}
+.order-summary{
+  border: 1px solid var(--border); border-radius: var(--radius-md);
+  background: var(--surface); padding: var(--space-4);
+}
+.order-summary .selection{
+  font-family: var(--font-mono); font-size: var(--fs-xs); text-transform: uppercase;
+  letter-spacing: 0.06em; color: var(--orange); margin-bottom: var(--space-3);
+}
+.order-summary dl{ display: grid; grid-template-columns: 1fr auto; row-gap: 0.5rem; }
+.order-summary dd{ padding-left: var(--space-3); }
+.order-summary dt{ color: var(--text-dim); font-size: var(--fs-sm); }
+.order-summary dd{ text-align: right; font-variant-numeric: tabular-nums; }
+.order-summary .total{
+  border-top: 1px solid var(--border); padding-top: var(--space-2); margin-top: 0.25rem;
+  color: var(--text); font-weight: 700;
+}
+.order-summary dd.total{ font-family: var(--font-display); font-size: var(--fs-lg); }
+.product-buy{ width: 100%; justify-content: center; padding-block: 1.1rem; }
+.product-points{ display: grid; gap: var(--space-2); margin-top: var(--space-5); }
+.product-points li{ display: flex; gap: 0.75rem; color: var(--text-dim); font-size: var(--fs-sm); }
+.product-points svg{ width: 18px; height: 18px; flex: none; color: var(--orange); margin-top: 2px; }
+a.shop-card-media{ display: block; }
