@@ -302,18 +302,42 @@
    --------------------------------------------------------------------- */
 (function () {
   "use strict";
-  document.querySelectorAll(".buy-btn").forEach(function (btn) {
-    var url = (btn.getAttribute("data-square-url") || "").trim();
+
+  function setBuy(btn, url, label) {
     if (/^https:\/\//i.test(url)) {
       btn.href = url;
       btn.target = "_blank";
       btn.rel = "noopener";
-      btn.setAttribute("aria-label", "Buy " + (btn.getAttribute("data-product") || "this item") + " (opens secure Square checkout)");
+      btn.textContent = "Buy Now";
+      btn.removeAttribute("aria-disabled");
+      btn.setAttribute("aria-label", "Buy " + label + " (opens secure Square checkout)");
     } else {
+      btn.href = "#";
+      btn.removeAttribute("target");
       btn.textContent = "Coming Soon";
       btn.setAttribute("aria-disabled", "true");
-      btn.addEventListener("click", function (e) { e.preventDefault(); });
+      btn.removeAttribute("aria-label");
     }
+  }
+
+  document.querySelectorAll(".buy-btn").forEach(function (btn) {
+    btn.addEventListener("click", function (e) {
+      if (btn.getAttribute("aria-disabled") === "true") e.preventDefault();
+    });
+    setBuy(btn, (btn.getAttribute("data-square-url") || "").trim(), btn.getAttribute("data-product") || "this item");
+  });
+
+  // Option dropdowns: each <option> carries its own Square link for the linked Buy button
+  document.querySelectorAll(".product-select").forEach(function (select) {
+    var btn = document.getElementById(select.getAttribute("data-buy"));
+    if (!btn) return;
+    function sync() {
+      var opt = select.options[select.selectedIndex];
+      setBuy(btn, (opt.getAttribute("data-square-url") || "").trim(),
+        (btn.getAttribute("data-product") || "this item") + " – " + opt.value);
+    }
+    select.addEventListener("change", sync);
+    sync();
   });
 })();
 

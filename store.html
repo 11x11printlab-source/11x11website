@@ -6,7 +6,7 @@
 <title>Store — 11:11 Printlab</title>
 <meta name="description" content="Shop ready-to-ship 3D printed pieces from 11:11 Printlab. Secure checkout and shipping handled by Square.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230a0a0a'/%3E%3Crect x='10' y='10' width='44' height='44' rx='6' fill='none' stroke='%23ff5a1f' stroke-width='3'/%3E%3Cpath d='M20 44V20l12 12 12-12v24' fill='none' stroke='%23ff5a1f' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
-<link rel="stylesheet" href="css/style.css?v=20261026d">
+<link rel="stylesheet" href="css/style.css?v=20261026e">
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -81,6 +81,32 @@
       -->
 
       <div class="shop-grid" id="productGrid">
+
+        <!-- Dino Duo: each color option carries its own Square payment link in data-square-url -->
+        <article class="shop-card product-card">
+          <div class="shop-card-media">
+            <a href="assets/work/dino-duo.jpg" target="_blank" rel="noopener" aria-label="View the full Dino Duo product image">
+              <img src="assets/work/thumbs/dino-duo.jpg" alt="Dino Duo 3D printed collectibles: a black and a pink kitty in dinosaur costumes" width="900" height="720" loading="lazy">
+            </a>
+            <span class="shop-card-price">New</span>
+          </div>
+          <div class="shop-card-body">
+            <h3>Dino Duo Collectible</h3>
+            <p>Cute, fierce, and fully 3D printed: a kitty in a dino suit with a premium textured finish, bow, spikes, and tail. Sold individually, so pick your color.</p>
+            <div class="field product-option">
+              <label for="dinoDuoColor">Color</label>
+              <select id="dinoDuoColor" class="product-select" data-buy="dinoDuoBuy">
+                <option value="Black Edition" data-square-url="">Black Edition</option>
+                <option value="Pink Edition" data-square-url="">Pink Edition</option>
+                <option value="Custom Color" data-square-url="">Custom Color (tell us at checkout)</option>
+              </select>
+            </div>
+            <div class="product-foot">
+              <span class="product-price">$25</span>
+              <a class="btn btn-primary buy-btn" id="dinoDuoBuy" href="#" data-square-url="" data-product="Dino Duo Collectible">Buy Now</a>
+            </div>
+          </div>
+        </article>
 
         <article class="shop-card product-card">
           <div class="shop-card-media">
@@ -233,6 +259,6 @@
 
 <div class="toast" id="toast"></div>
 
-<script src="js/main.js?v=20261026d"></script>
+<script src="js/main.js?v=20261026e"></script>
 </body>
 </html>
