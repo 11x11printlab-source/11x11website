@@ -1083,6 +1083,10 @@ h2.h-display, .h-display{
 .buy-btn[aria-disabled="true"]:hover{ background: var(--surface-2); }
 .product-card:hover{ transform: none; }
 .product-option{ margin-top: var(--space-2); }
+.product-ship{
+  display: block; font-family: var(--font-mono); font-size: var(--fs-xs);
+  font-weight: 400; letter-spacing: 0.04em; color: var(--text-dim);
+}
 .product-option select{ width: 100%; cursor: pointer; }
 .shop-card-media > a{ display: block; width: 100%; height: 100%; }
 
