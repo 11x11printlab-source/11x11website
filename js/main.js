@@ -296,3 +296,172 @@
     heroVisual.style.transition = "transform 400ms cubic-bezier(.16,.84,.44,1)";
   }
 })();
+
+/* ---------------------------------------------------------------------
+   Store: Buy Now buttons -> Square checkout links
+   --------------------------------------------------------------------- */
+(function () {
+  "use strict";
+  document.querySelectorAll(".buy-btn").forEach(function (btn) {
+    var url = (btn.getAttribute("data-square-url") || "").trim();
+    if (/^https:\/\//i.test(url)) {
+      btn.href = url;
+      btn.target = "_blank";
+      btn.rel = "noopener";
+      btn.setAttribute("aria-label", "Buy " + (btn.getAttribute("data-product") || "this item") + " (opens secure Square checkout)");
+    } else {
+      btn.textContent = "Coming Soon";
+      btn.setAttribute("aria-disabled", "true");
+      btn.addEventListener("click", function (e) { e.preventDefault(); });
+    }
+  });
+})();
+
+/* ---------------------------------------------------------------------
+   Opening sequence, hero entrance, hero spotlight, story video
+   --------------------------------------------------------------------- */
+(function () {
+  "use strict";
+
+  var root = document.documentElement;
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var canAnimate = typeof Element.prototype.animate === "function";
+  var intro = document.getElementById("intro");
+
+  function heroPlay() {
+    if (!reduce) root.classList.add("hero-play");
+  }
+
+  function runIntro() {
+    var stage = document.getElementById("introStage");
+    var line1 = document.getElementById("introL1");
+    var line2 = document.getElementById("introL2");
+    var tag = document.getElementById("introTag");
+    var flash = document.getElementById("introFlash");
+    var skip = document.getElementById("introSkip");
+    var timers = [];
+    var done = false;
+
+    function later(fn, ms) { timers.push(window.setTimeout(fn, ms)); }
+
+    function build(el) {
+      var text = el.getAttribute("data-text") || "";
+      var spans = [];
+      for (var i = 0; i < text.length; i++) {
+        var s = document.createElement("span");
+        s.className = "intro-ch";
+        s.textContent = text.charAt(i);
+        el.appendChild(s);
+        spans.push(s);
+      }
+      return spans;
+    }
+
+    function shake() {
+      stage.animate([
+        { transform: "translate(0,0)" },
+        { transform: "translate(-6px,5px)" },
+        { transform: "translate(5px,-4px)" },
+        { transform: "translate(0,0)" }
+      ], { duration: 140, easing: "ease-out" });
+    }
+
+    function pulse() {
+      flash.animate([{ opacity: 0 }, { opacity: 0.16 }, { opacity: 0 }], { duration: 180 });
+    }
+
+    function slam(el, delay) {
+      el.animate([
+        { opacity: 0, transform: "scale(2.7) translateY(-8%)", filter: "blur(14px)" },
+        { opacity: 1, transform: "scale(0.9) translateY(2%)", filter: "blur(0px)", offset: 0.55 },
+        { opacity: 1, transform: "scale(1) translateY(0)", filter: "blur(0px)" }
+      ], { duration: 300, delay: delay, easing: "cubic-bezier(.2,.9,.25,1)", fill: "both" });
+      later(shake, delay + 170);
+    }
+
+    var first = build(line1);
+    var second = build(line2);
+
+    // "11:11" lands first, one character at a time, then "PRINTLAB"
+    var start1 = 250, step1 = 130;
+    var start2 = 1150, step2 = 85;
+    first.forEach(function (el, i) { slam(el, start1 + i * step1); });
+    second.forEach(function (el, i) { slam(el, start2 + i * step2); });
+    later(pulse, start1 + (first.length - 1) * step1 + 170);
+    later(pulse, start2 + (second.length - 1) * step2 + 170);
+
+    tag.animate([{ opacity: 0, transform: "translateY(10px)" }, { opacity: 1, transform: "translateY(0)" }],
+      { duration: 500, delay: 2200, easing: "ease-out", fill: "both" });
+
+    function finish(fast) {
+      if (done) return;
+      done = true;
+      timers.forEach(window.clearTimeout);
+      document.removeEventListener("keydown", onKey);
+      var wipe = fast
+        ? intro.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 260, easing: "ease-out", fill: "forwards" })
+        : intro.animate([{ transform: "translateY(0)" }, { transform: "translateY(-100%)" }],
+            { duration: 850, easing: "cubic-bezier(.76,0,.24,1)", fill: "forwards" });
+      window.setTimeout(heroPlay, fast ? 80 : 300);
+      var ended = false;
+      function cleanup() {
+        if (ended) return;
+        ended = true;
+        root.classList.remove("intro-pending");
+        try { sessionStorage.setItem("intro-seen", "1"); } catch (e) {}
+        window.scrollTo(0, 0);
+      }
+      wipe.onfinish = cleanup;
+      window.setTimeout(cleanup, fast ? 400 : 1100);
+    }
+
+    function onKey(e) {
+      if (e.key === "Escape" || e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        finish(true);
+      }
+    }
+    document.addEventListener("keydown", onKey);
+    intro.addEventListener("click", function () { finish(true); });
+    skip.addEventListener("click", function (e) { e.stopPropagation(); finish(true); });
+    skip.focus({ preventScroll: true });
+
+    later(function () { finish(false); }, 3200);
+  }
+
+  if (intro && canAnimate && root.classList.contains("intro-pending")) {
+    runIntro();
+  } else {
+    root.classList.remove("intro-pending");
+    heroPlay();
+  }
+
+  /* hero spotlight follows the pointer (desktop only) */
+  var hero = document.querySelector(".hero");
+  if (hero && !reduce && window.matchMedia("(hover: hover)").matches) {
+    var ticking = false;
+    hero.addEventListener("pointermove", function (e) {
+      if (ticking) return;
+      ticking = true;
+      window.requestAnimationFrame(function () {
+        var r = hero.getBoundingClientRect();
+        hero.style.setProperty("--mx", (e.clientX - r.left) + "px");
+        hero.style.setProperty("--my", (e.clientY - r.top) + "px");
+        ticking = false;
+      });
+    });
+  }
+
+  /* story video: poster + big play button, native controls once playing */
+  var card = document.getElementById("videoCard");
+  var vid = document.getElementById("storyVideo");
+  var playBtn = document.getElementById("videoPlay");
+  if (card && vid && playBtn) {
+    playBtn.addEventListener("click", function () {
+      var p = vid.play();
+      if (p && p.catch) p.catch(function () {});
+    });
+    vid.addEventListener("play", function () { card.classList.add("is-playing"); });
+    vid.addEventListener("ended", function () { card.classList.remove("is-playing"); });
+  }
+})();

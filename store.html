@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Store — 11:11 Printlab</title>
+<meta name="description" content="Shop ready-to-ship 3D printed pieces from 11:11 Printlab. Secure checkout and shipping handled by Square.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230a0a0a'/%3E%3Crect x='10' y='10' width='44' height='44' rx='6' fill='none' stroke='%23ff5a1f' stroke-width='3'/%3E%3Cpath d='M20 44V20l12 12 12-12v24' fill='none' stroke='%23ff5a1f' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header" id="siteHeader">
+  <div class="container nav-row">
+    <a href="index.html" class="logo" aria-label="11:11 Printlab home">
+      11:11 <em>Printlab</em>
+    </a>
+
+    <nav class="nav-links" aria-label="Primary">
+      <a href="index.html#work">Work</a>
+      <a href="store.html" aria-current="page" style="color:var(--text);">Store</a>
+      <a href="index.html#shop">Custom</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+
+    <div class="nav-actions">
+      <a href="index.html#contact" class="btn btn-primary nav-cta">Get a Quote</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobileMenu">
+        <svg class="icon-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><line x1="5" y1="5" x2="19" y2="19"/><line x1="19" y1="5" x2="5" y2="19"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html#work">Work</a>
+  <a href="store.html">Store</a>
+  <a href="index.html#shop">Custom</a>
+  <a href="index.html#about">About</a>
+  <a href="index.html#contact">Contact</a>
+  <a href="index.html#contact" class="btn btn-primary">Get a Quote</a>
+</div>
+
+<main id="main">
+
+  <section class="store-hero grain">
+    <div class="hero-grid" aria-hidden="true"></div>
+    <div class="container" style="position:relative;">
+      <p class="eyebrow">The Store</p>
+      <h1 class="h-display store-title">Ready to ship. <span style="color:var(--orange);">Ready to display.</span></h1>
+      <p class="store-sub">Pick a piece and check out in a minute. Payment and shipping details are handled securely by Square.</p>
+      <ul class="trust-row">
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>
+          Secure checkout by Square
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7l9-4 9 4-9 4-9-4z"/><path d="M3 7v10l9 4 9-4V7"/><path d="M12 11v10"/></svg>
+          Shipping address collected at checkout
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18"/></svg>
+          All major cards accepted
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section-pad" style="padding-top: var(--space-6);">
+    <div class="container">
+
+      <!--
+        HOW TO MAKE A BUY NOW BUTTON LIVE
+        1. In your Square Dashboard, create a payment link for the product (turn on shipping address collection).
+        2. Paste the link into that product's data-square-url below, e.g. data-square-url="https://square.link/u/xxxxxxx"
+        3. Until a link is pasted, the button shows "Coming Soon" and can't be clicked.
+        Product names, descriptions and prices below are PLACEHOLDERS: edit them to match your Square items.
+      -->
+
+      <div class="shop-grid" id="productGrid">
+
+        <article class="shop-card product-card">
+          <div class="shop-card-media">
+            <img src="assets/work/thumbs/spiral-vase.jpg" alt="Decorative spiral vase, 3D printed" width="900" height="675" loading="lazy">
+          </div>
+          <div class="shop-card-body">
+            <h3>Spiral Vase</h3>
+            <p>A twisting, ribbed vase printed in one continuous pass. Looks great with dried stems or on its own.</p>
+            <div class="product-foot">
+              <span class="product-price">$25</span>
+              <a class="btn btn-primary buy-btn" href="#" data-square-url="" data-product="Spiral Vase">Buy Now</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="shop-card product-card">
+          <div class="shop-card-media">
+            <img src="assets/work/thumbs/lithophane-couple.jpg" alt="Lithophane photo panel" width="900" height="675" loading="lazy">
+          </div>
+          <div class="shop-card-body">
+            <h3>Custom Lithophane Panel</h3>
+            <p>Your photo printed into a panel that glows to life when backlit. Send your image after checkout.</p>
+            <div class="product-foot">
+              <span class="product-price">$35</span>
+              <a class="btn btn-primary buy-btn" href="#" data-square-url="" data-product="Custom Lithophane Panel">Buy Now</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="shop-card product-card">
+          <div class="shop-card-media">
+            <img src="assets/work/thumbs/lion-wall-art.jpg" alt="Lion wall art on a display easel" width="900" height="675" loading="lazy">
+          </div>
+          <div class="shop-card-body">
+            <h3>Lion Art Panel + Easel</h3>
+            <p>Layered black-and-white lion panel with a printed tabletop easel stand, ready to display.</p>
+            <div class="product-foot">
+              <span class="product-price">$30</span>
+              <a class="btn btn-primary buy-btn" href="#" data-square-url="" data-product="Lion Art Panel + Easel">Buy Now</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="shop-card product-card">
+          <div class="shop-card-media">
+            <img src="assets/work/thumbs/custom-bobblehead.jpg" alt="Custom bobblehead with name plate" width="900" height="675" loading="lazy">
+          </div>
+          <div class="shop-card-body">
+            <h3>Custom Bobblehead</h3>
+            <p>A figure made from your photo, with a name plate on the base. Send your reference photo after checkout.</p>
+            <div class="product-foot">
+              <span class="product-price">$65</span>
+              <a class="btn btn-primary buy-btn" href="#" data-square-url="" data-product="Custom Bobblehead">Buy Now</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="shop-card product-card">
+          <div class="shop-card-media">
+            <img src="assets/work/thumbs/dojo-sign.jpg" alt="Custom multi-layer logo sign" width="900" height="675" loading="lazy">
+          </div>
+          <div class="shop-card-body">
+            <h3>Custom Logo Sign</h3>
+            <p>Your logo as a stacked, multi-color desk or wall sign. Send your artwork after checkout.</p>
+            <div class="product-foot">
+              <span class="product-price">$40</span>
+              <a class="btn btn-primary buy-btn" href="#" data-square-url="" data-product="Custom Logo Sign">Buy Now</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="shop-card product-card">
+          <div class="shop-card-media">
+            <img src="assets/work/thumbs/storage-crate.jpg" alt="Modular storage crate print" width="900" height="675" loading="lazy">
+          </div>
+          <div class="shop-card-body">
+            <h3>Mini Storage Crate</h3>
+            <p>A sturdy, vented mini crate for desk clutter, cables, and collectibles.</p>
+            <div class="product-foot">
+              <span class="product-price">$15</span>
+              <a class="btn btn-primary buy-btn" href="#" data-square-url="" data-product="Mini Storage Crate">Buy Now</a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+
+      <div class="shop-note">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="9"/><line x1="12" y1="11" x2="12" y2="16.5"/><circle cx="12" cy="7.8" r="0.9" fill="currentColor" stroke="none"/></svg>
+        <span>You'll be taken to a secure Square checkout page to enter payment and shipping details. Questions before you buy? <a href="index.html#contact" style="color:var(--orange);">Get in touch</a>.</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-pad cta-band">
+    <div class="container">
+      <p class="eyebrow" style="justify-content:center;">Don't see it?</p>
+      <h2 class="h-display">We make one-of-one pieces too.</h2>
+      <p>Tell us what you're picturing and we'll quote it.</p>
+      <div class="hero-actions">
+        <a href="index.html#contact" class="btn btn-primary">Start a Custom Order</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-top">
+    <div class="footer-brand">
+      <a href="index.html" class="logo">11:11 <em>Printlab</em></a>
+      <p>Custom 3D printing for figures, signage, props, and keepsakes — modeled, printed, and finished in-house, one order at a time.</p>
+    </div>
+    <div class="footer-col">
+      <h5>Studio</h5>
+      <ul>
+        <li><a href="index.html#work">Work</a></li>
+        <li><a href="store.html">Store</a></li>
+        <li><a href="index.html#shop">Custom</a></li>
+        <li><a href="index.html#about">About</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Get In Touch</h5>
+      <ul>
+        <li><a href="index.html#contact">Contact</a></li>
+        <li><a href="mailto:11x11printlab@gmail.com">Email Us</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Follow</h5>
+      <div class="social-row">
+        <a href="https://instagram.com/11x11printlab" target="_blank" rel="noopener" aria-label="11:11 Printlab on Instagram" title="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none"/></svg>
+        </a>
+        <a href="https://www.tiktok.com/@11x11.print.lab" target="_blank" rel="noopener" aria-label="11:11 Printlab on TikTok" title="TikTok">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4v9.5a3.5 3.5 0 1 1-3-3.46"/><path d="M14 4c.4 2.2 2 3.6 4 4"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <span>© <span id="year"></span> 11:11 Printlab. All rights reserved.</span>
+    <button class="back-to-top" id="backToTop">
+      Back to top
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+    </button>
+  </div>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script src="js/main.js"></script>
+</body>
+</html>

@@ -1047,3 +1047,135 @@ h2.h-display, .h-display{
   transition: opacity var(--dur-base), transform var(--dur-base);
 }
 .toast.is-visible{ opacity: 1; transform: translate(-50%, 0); pointer-events: auto; }
+
+/* ==========================================================================
+   Store page
+   ========================================================================== */
+.store-hero{
+  padding-top: calc(var(--space-9) - var(--space-2));
+  padding-bottom: var(--space-6);
+  background: radial-gradient(ellipse 60% 70% at 80% 0%, rgba(255,90,31,0.14), transparent 65%);
+  overflow: hidden;
+}
+.store-title{ font-size: var(--fs-3xl); text-transform: uppercase; letter-spacing: -0.02em; line-height: 1; max-width: 18ch; }
+.store-sub{ margin-top: var(--space-3); max-width: 36rem; color: var(--text-dim); font-size: var(--fs-lg); }
+.trust-row{ display: flex; flex-wrap: wrap; gap: var(--space-2) var(--space-5); margin-top: var(--space-5); }
+.trust-row li{
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  font-family: var(--font-mono); font-size: var(--fs-xs);
+  text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-dim);
+}
+.trust-row svg{ width: 18px; height: 18px; color: var(--orange); flex: none; }
+
+.product-foot{
+  display: flex; align-items: center; justify-content: space-between;
+  gap: var(--space-3); margin-top: var(--space-3);
+  padding-top: var(--space-3); border-top: 1px solid var(--border);
+}
+.product-price{
+  font-family: var(--font-display); font-weight: 800; font-size: var(--fs-xl);
+  font-variant-numeric: tabular-nums;
+}
+.buy-btn[aria-disabled="true"]{
+  background: var(--surface-2); color: var(--text-faint);
+  border-color: var(--border-strong); cursor: not-allowed;
+}
+.buy-btn[aria-disabled="true"]:hover{ background: var(--surface-2); }
+.product-card:hover{ transform: none; }
+
+/* ==========================================================================
+   Opening sequence
+   ========================================================================== */
+.intro{
+  position: fixed; inset: 0; z-index: 1000;
+  display: none; align-items: center; justify-content: center;
+  background: #000; overflow: hidden; cursor: pointer;
+}
+html.intro-pending .intro{ display: flex; }
+html.intro-pending body{ overflow: hidden; }
+.intro-stage{
+  display: flex; flex-direction: column; align-items: center;
+  gap: clamp(0.3rem, 1.2vw, 1rem);
+  will-change: transform;
+}
+.intro-line{
+  display: flex; justify-content: center;
+  font-family: var(--font-display); font-weight: 900; text-transform: uppercase;
+  line-height: 0.84; letter-spacing: -0.03em; white-space: nowrap;
+}
+.intro-1{ font-size: clamp(5rem, 24vw, 22rem); color: var(--orange); }
+.intro-2{ font-size: clamp(2.6rem, 12.4vw, 11.5rem); color: var(--text); }
+.intro-ch{ display: inline-block; opacity: 0; transform-origin: 50% 100%; will-change: transform, opacity; }
+.intro-tag{
+  margin-top: clamp(0.8rem, 2.2vw, 1.8rem);
+  font-family: var(--font-mono); font-size: clamp(0.7rem, 1.5vw, 1.05rem);
+  letter-spacing: 0.34em; text-transform: uppercase; color: var(--text-dim);
+  opacity: 0;
+}
+.intro-flash{ position: absolute; inset: 0; background: var(--orange); opacity: 0; pointer-events: none; }
+.intro-skip{
+  position: absolute; right: 1.5rem; bottom: 1.5rem;
+  min-height: 44px; padding: 0.6rem 1.1rem;
+  font-family: var(--font-mono); font-size: var(--fs-xs); letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--text-dim); border: 1px solid var(--border-strong); border-radius: 999px;
+  cursor: pointer; transition: color var(--dur-fast), border-color var(--dur-fast);
+}
+.intro-skip:hover, .intro-skip:focus-visible{ color: var(--orange); border-color: var(--orange); }
+
+/* hero comes alive when the opening lifts */
+html.intro-pending .hero-anim > *,
+html.intro-pending .hero-visual-wrap{ opacity: 0; }
+@keyframes heroIn{
+  from{ opacity: 0; transform: translateY(46px); }
+  to{ opacity: 1; transform: translateY(0); }
+}
+html.hero-play .hero-anim > *,
+html.hero-play .hero-visual-wrap{
+  animation: heroIn 0.95s var(--ease-out) both;
+  animation-delay: calc(var(--d, 0) * 110ms);
+}
+.hero-anim > :nth-child(1){ --d: 0; }
+.hero-anim > :nth-child(2){ --d: 1; }
+.hero-anim > :nth-child(3){ --d: 2; }
+.hero-anim > :nth-child(4){ --d: 3; }
+.hero-anim > :nth-child(5){ --d: 4; }
+
+/* a soft spotlight that follows the pointer across the hero */
+.hero::after{
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: radial-gradient(520px circle at var(--mx, 72%) var(--my, 28%), rgba(255,90,31,0.14), rgba(255,90,31,0) 62%);
+}
+
+/* ==========================================================================
+   Story video
+   ========================================================================== */
+.video-card{
+  position: relative; aspect-ratio: 16 / 9; overflow: hidden;
+  border: 1px solid var(--border); border-radius: var(--radius-lg);
+  background: #000; box-shadow: 0 40px 90px -30px rgba(255,90,31,0.28);
+}
+.video-card video{ width: 100%; height: 100%; display: block; object-fit: cover; background: #000; }
+.video-play{
+  position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: var(--space-3); background: rgba(10,10,10,0.32); cursor: pointer;
+  transition: opacity var(--dur-base), background var(--dur-base);
+}
+.video-play:hover{ background: rgba(10,10,10,0.18); }
+.video-card.is-playing .video-play{ opacity: 0; pointer-events: none; }
+.video-play-btn{
+  position: relative; width: clamp(76px, 9vw, 112px); aspect-ratio: 1; border-radius: 50%;
+  background: var(--orange); color: var(--on-orange); display: grid; place-items: center;
+  transition: transform var(--dur-base) var(--ease-spring);
+}
+.video-play-btn svg{ width: 42%; height: 42%; margin-left: 6%; }
+.video-play:hover .video-play-btn{ transform: scale(1.1); }
+.video-play-btn::after{
+  content: ""; position: absolute; inset: 0; border-radius: 50%; border: 3px solid var(--orange);
+  animation: playRing 2.2s ease-out infinite;
+}
+@keyframes playRing{ from{ transform: scale(1); opacity: 0.8; } to{ transform: scale(1.7); opacity: 0; } }
+.video-play-label{
+  font-family: var(--font-mono); font-size: var(--fs-sm); letter-spacing: 0.14em; text-transform: uppercase; color: var(--text);
+}
+.video-play-label i{ font-style: normal; color: var(--orange); margin-left: 0.6rem; }
+@media (prefers-reduced-motion: reduce){ .video-play-btn::after{ animation: none; opacity: 0; } }

@@ -7,8 +7,34 @@
 <meta name="description" content="11:11 Printlab designs and prints custom 3D figures, signage, cosplay props, lithophanes, and one-of-one keepsakes. Based in your imagination, made real layer by layer.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230a0a0a'/%3E%3Crect x='10' y='10' width='44' height='44' rx='6' fill='none' stroke='%23ff5a1f' stroke-width='3'/%3E%3Cpath d='M20 44V20l12 12 12-12v24' fill='none' stroke='%23ff5a1f' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
 <link rel="stylesheet" href="css/style.css">
+<script>
+  /* Opening sequence gate: runs before first paint. The page stays fully usable without JS. */
+  (function () {
+    var d = document.documentElement;
+    d.classList.add("js");
+    var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var seen = false;
+    try { seen = sessionStorage.getItem("intro-seen") === "1"; } catch (e) {}
+    if (/[?&]intro(=|&|$)/.test(location.search)) seen = false; /* add ?intro to the address to replay it */
+    if (!reduce && !seen) {
+      d.classList.add("intro-pending");
+      setTimeout(function () { d.classList.remove("intro-pending"); }, 9000);
+    }
+  })();
+</script>
 </head>
 <body>
+<!-- ================= OPENING SEQUENCE ================= -->
+<div class="intro" id="intro">
+  <div class="intro-stage" id="introStage" aria-hidden="true">
+    <div class="intro-line intro-1" id="introL1" data-text="11:11"></div>
+    <div class="intro-line intro-2" id="introL2" data-text="PRINTLAB"></div>
+    <p class="intro-tag" id="introTag">Custom 3D printing studio</p>
+  </div>
+  <div class="intro-flash" id="introFlash" aria-hidden="true"></div>
+  <button type="button" class="intro-skip" id="introSkip">Skip intro</button>
+</div>
+
 <a class="skip-link" href="#main">Skip to content</a>
 
 <!-- ================= HEADER ================= -->
@@ -20,7 +46,8 @@
 
     <nav class="nav-links" aria-label="Primary">
       <a href="#work">Work</a>
-      <a href="#shop">Shop</a>
+      <a href="store.html">Store</a>
+      <a href="#shop">Custom</a>
       <a href="#about">About</a>
       <a href="#contact">Contact</a>
     </nav>
@@ -38,7 +65,8 @@
 
 <div class="mobile-menu" id="mobileMenu">
   <a href="#work">Work</a>
-  <a href="#shop">Shop</a>
+  <a href="store.html">Store</a>
+  <a href="#shop">Custom</a>
   <a href="#about">About</a>
   <a href="#contact">Contact</a>
   <a href="#contact" class="btn btn-primary">Get a Quote</a>
@@ -50,7 +78,7 @@
   <section class="hero grain" id="top">
     <div class="hero-grid" aria-hidden="true"></div>
     <div class="container hero-inner">
-      <div class="hero-copy">
+      <div class="hero-copy hero-anim">
         <p class="eyebrow">Custom 3D Printing Studio</p>
         <h1>Make it <span class="accent">real.</span><br>Not just an idea.</h1>
         <p class="hero-sub">11:11 Printlab designs and prints custom figures, signage, props, and one-of-one keepsakes — from a photo, a sketch, or a "what if." Modeled, sliced, and printed in-house.</p>
@@ -60,6 +88,10 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
           </a>
           <a href="#contact" class="btn btn-outline">Start a Custom Order</a>
+          <a href="#watch" class="btn btn-ghost">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+            Watch the story
+          </a>
         </div>
         <div class="hero-meta">
           <div class="stat"><b>1-Off</b><span>Custom Builds</span></div>
@@ -67,7 +99,7 @@
           <div class="stat"><b>On Every Line</b><span>Layer Precision</span></div>
         </div>
       </div>
-      <div class="hero-visual-wrap" style="position:relative;">
+      <div class="hero-visual-wrap" style="position:relative;--d:3;">
         <div class="hero-visual">
           <span class="frame-tag">FEATURED BUILD</span>
           <img src="assets/work/charizard-figure.jpg" alt="Hand-painted custom Charizard figure printed and finished by 11:11 Printlab" width="1800" height="1350" fetchpriority="high">
@@ -239,6 +271,30 @@
 
       <div class="work-more reveal">
         <a href="#contact" class="btn btn-outline">Have something similar in mind? Let's talk</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= WATCH ================= -->
+  <section class="section-pad" id="watch">
+    <div class="container">
+      <div class="section-head reveal">
+        <div>
+          <p class="eyebrow">How It Works</p>
+          <h2 class="h-display">From first email to your wall.</h2>
+        </div>
+        <p>One custom order, start to finish: the idea, the emails, the print, the box, and the glow. About a minute.</p>
+      </div>
+
+      <div class="video-card reveal" id="videoCard">
+        <video id="storyVideo" controls playsinline preload="none" poster="assets/just-do-3d-story-poster.jpg" aria-label="11:11 Printlab story video: one custom order from idea to delivery">
+          <source src="assets/just-do-3d-story.mp4" type="video/mp4">
+          Your browser can't play this video. <a href="assets/just-do-3d-story.mp4">Download it instead.</a>
+        </video>
+        <button type="button" class="video-play" id="videoPlay" aria-label="Play the 11:11 Printlab story video">
+          <span class="video-play-btn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
+          <span class="video-play-label">Watch the story <i>1:00</i></span>
+        </button>
       </div>
     </div>
   </section>
@@ -550,7 +606,8 @@
       <h5>Studio</h5>
       <ul>
         <li><a href="#work">Work</a></li>
-        <li><a href="#shop">Shop</a></li>
+        <li><a href="store.html">Store</a></li>
+        <li><a href="#shop">Custom</a></li>
         <li><a href="#about">About</a></li>
       </ul>
     </div>
