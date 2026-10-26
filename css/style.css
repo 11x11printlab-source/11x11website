@@ -1204,4 +1204,5 @@ html.hero-play .hero-visual-wrap{
   border: 1px dashed var(--border-strong); border-radius: var(--radius-sm);
 }
 .product-fine{ margin-top: var(--space-2); font-size: var(--fs-xs); line-height: 1.5; color: var(--text-faint); }
+.product-spec{ display: block; margin-top: var(--space-2); font-family: var(--font-mono); font-size: var(--fs-xs); letter-spacing: 0.04em; color: var(--orange); }
 .product-select-combo{ width: 100%; cursor: pointer; }
