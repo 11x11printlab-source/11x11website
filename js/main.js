@@ -318,6 +318,104 @@
 })();
 
 /* ---------------------------------------------------------------------
+   Product page: team + size options, gallery, Buy Now
+   --------------------------------------------------------------------- */
+(function () {
+  "use strict";
+
+  var form = document.getElementById("productForm");
+  if (!form) return;
+
+  var teamSelect = document.getElementById("teamSelect");
+  var sizeSelect = document.getElementById("sizeSelect");
+  var buyBtn = document.getElementById("productBuy");
+  var summary = document.getElementById("productSelection");
+  var mainImg = document.getElementById("galleryMain");
+  var thumbs = Array.prototype.slice.call(document.querySelectorAll(".gallery-thumb"));
+  var toast = document.getElementById("toast");
+  var toastTimer = null;
+
+  function showToast(message) {
+    if (!toast) return;
+    toast.textContent = message;
+    toast.classList.add("is-visible");
+    window.clearTimeout(toastTimer);
+    toastTimer = window.setTimeout(function () { toast.classList.remove("is-visible"); }, 5000);
+  }
+
+  function showImage(thumb) {
+    if (!thumb || !mainImg) return;
+    mainImg.src = thumb.getAttribute("data-full");
+    mainImg.alt = thumb.querySelector("img").alt;
+    thumbs.forEach(function (t) { t.setAttribute("aria-pressed", t === thumb ? "true" : "false"); });
+  }
+
+  thumbs.forEach(function (thumb) {
+    thumb.addEventListener("click", function () { showImage(thumb); });
+  });
+
+  function setError(field, on) {
+    field.closest(".field").classList.toggle("has-error", on);
+  }
+
+  function selectionText() {
+    return teamSelect.value + " · " + sizeSelect.value;
+  }
+
+  function update() {
+    var ready = teamSelect.value && sizeSelect.value;
+    summary.textContent = ready ? selectionText() : "Pick your team and size";
+    // Show a matching photo when we have one for the chosen team
+    var match = thumbs.filter(function (t) { return t.getAttribute("data-team") === teamSelect.value; })[0];
+    if (match) showImage(match);
+  }
+
+  [teamSelect, sizeSelect].forEach(function (el) {
+    el.addEventListener("change", function () { setError(el, false); update(); });
+  });
+
+  // Preselect a team from the URL, e.g. team-koozies.html?team=Dallas%20Cowboys
+  var preset = new URLSearchParams(window.location.search).get("team");
+  if (preset) {
+    teamSelect.value = preset;
+    if (teamSelect.value !== preset) teamSelect.value = "";
+  }
+  update();
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    var missing = [teamSelect, sizeSelect].filter(function (el) { return !el.value; });
+    missing.forEach(function (el) { setError(el, true); });
+    if (missing.length) { missing[0].focus(); return; }
+
+    var product = form.getAttribute("data-product");
+    var price = form.getAttribute("data-price");
+    var shipping = form.getAttribute("data-shipping");
+    var squareUrl = (buyBtn.getAttribute("data-square-url") || "").trim();
+    var order = product + " — " + selectionText();
+
+    if (/^https:\/\//i.test(squareUrl)) {
+      // Square checkout can't receive our options, so copy them for the order note
+      if (navigator.clipboard) navigator.clipboard.writeText(order).catch(function () {});
+      window.open(squareUrl, "_blank", "noopener");
+      showToast("Copied “" + selectionText() + "”. Paste it in the order note at checkout.");
+      return;
+    }
+
+    var subject = "Order: " + order;
+    var body = "Hi 11:11 Printlab,\n\nI'd like to order:\n\n" +
+      "Product: " + product + "\n" +
+      "Team: " + teamSelect.value + "\n" +
+      "Size: " + sizeSelect.value + "\n" +
+      "Price: $" + price + " + $" + shipping + " shipping = $" + (Number(price) + Number(shipping)) + "\n\n" +
+      "Ship to:\n\n\nThanks!";
+    window.location.href = "mailto:11x11printlab@gmail.com?subject=" +
+      encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+    showToast("Opening your email app to send your order…");
+  });
+})();
+
+/* ---------------------------------------------------------------------
    Opening sequence, hero entrance, hero spotlight, story video
    --------------------------------------------------------------------- */
 (function () {
